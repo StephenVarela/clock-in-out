@@ -8,4 +8,12 @@ class ApplicationController < ActionController::Base
       @current_user = nil
     end
   end
+
+  def logged_in?
+    !@current_user.nil?
+  end
+
+  def authorize
+    redirect_to '/', notice: "Please Log In or Sign up before continuing" if current_user.nil?
+  end
 end

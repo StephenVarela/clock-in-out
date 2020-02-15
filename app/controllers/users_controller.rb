@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authorize, only: %i[index show destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to '/', notice: 'Please Sign In.' }
+        format.html { redirect_to '/', notice: 'Please Log In.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

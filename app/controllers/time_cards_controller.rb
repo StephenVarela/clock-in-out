@@ -1,5 +1,7 @@
 
 class TimeCardsController < ApplicationController
+  before_action :authorize, only: %i[index show new edit create update destroy]
+
   def index
     @time_cards = TimeCard.all
   end
