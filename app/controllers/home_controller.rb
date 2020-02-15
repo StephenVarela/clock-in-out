@@ -10,6 +10,8 @@ class HomeController < ApplicationController
       else
         @time_card = TimeCard.new
       end
+
+      @time_cards = current_user.time_cards
     end 
   end
 end

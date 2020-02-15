@@ -1,19 +1,56 @@
-<% if current_user %>
-  Logged in as <%= current_user.email %>.
-  <%= link_to :log_out, logout_path %>
-
-  <%= form_for(@time_card) do |f|%>
-    <% if @time_card.time_in.nil?%>
-      <%= f.hidden_field :time_in, :value => Time.now %>
-      <%= f.submit "Clock In" %>
-    <% else %>
-      <%= f.hidden_field :time_out, :value => Time.now %>
-      <%= f.submit "Clock Out" %>
-    <% end %>
+<header>
+  <% if current_user %>
+    Logged in as <%= current_user.email %>.
+    <%= link_to :log_out, logout_path %>
+  <% else %>
+    <%= link_to :sign_up, signup_path %> or 
+    <%= link_to :log_in, login_path %>
   <% end %>
+  <p id=”notice”><%= notice %></p>
+</header>
 
-<% else %>
-  <%= link_to :sign_up, signup_path %> or 
-  <%= link_to :log_in, login_path %>
-<% end %>
-<p id=”notice”><%= notice %></p>
+<body>
+  <% if current_user %>
+    <%= form_for(@time_card) do |f|%>
+      <% if @time_card.time_in.nil?%>
+        <%= f.hidden_field :time_in, :value => Time.now %>
+        <%= f.submit "Clock In" %>
+      <% else %>
+        <%= f.hidden_field :time_out, :value => Time.now %>
+        <%= f.submit "Clock Out" %>
+      <% end %>
+    <% end %>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>User Email</th>    
+          <th>Time in</th>
+          <th>Time out</th>
+          <th>Total Time</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @time_cards.each do |time_card| %>
+          <tr>
+            <td><%= time_card.user.email %></td>
+            <td><%= time_card.time_in %></td>
+            <td><%= time_card.time_out %></td>
+            <td><%= time_card.total_time %></td>
+            <td><%= link_to 'Show', time_card %></td>
+            <td><%= link_to 'Edit', edit_time_card_path(time_card) %></td>
+            <td><%= link_to 'Destroy', time_card, method: :delete %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  <% end %>
+  
+  <div>
+    <%= link_to :users, users_path %>
+    <%= link_to :time_cards, time_cards_path %>
+  </div>
+</body>

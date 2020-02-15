@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @time_cards = @user.time_cards
   end
 
   def new
