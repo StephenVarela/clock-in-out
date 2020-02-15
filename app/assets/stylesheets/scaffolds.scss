@@ -6,22 +6,102 @@ body {
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
-  line-height: 18px; }
+  line-height: 18px; 
+  text-align: center;
+  background-color: #ebebeb;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color:#22c7d6;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+}
+
+.logo {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.login {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.main-button{
+  background-color: #e8b425;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  padding: 10px 500px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 10px;
+  margin-bottom: 25px;  
+}
+
+.main-button:hover{
+  background-color:#9c7919;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  padding: 10px 500px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 15px;
+  margin-bottom: 25px;
+}
+
+.button{
+  background-color: #189933;
+  color: white;
+  text-decoration: none;
+  padding: 10px 10px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.button:hover{
+  background-color: #226e32;
+  color: white;
+  text-decoration: none;
+  padding: 10px 10px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 15px;
+}
+
+.login-portal{
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  border: black;
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px 10px 10px 10px;
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 5px 5px #888888;
+  text-align: center;
+  margin: auto;
+}
+
+.table{
+  text-align: center;
+  margin: auto;
+  background-color: #cfd1cf;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+}
 
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px; }
-
-a {
-  color: #000; }
-
-a:visited {
-  color: #666; }
-
-a:hover {
-  color: #fff;
-  background-color: #000; }
 
 th {
   padding-bottom: 5px; }
