@@ -1,6 +1,17 @@
 <% if current_user %>
   Logged in as <%= current_user.email %>.
   <%= link_to :log_out, logout_path %>
+
+  <%= form_for(@time_card) do |f|%>
+    <% if @time_card.time_in.nil?%>
+      <%= f.hidden_field :time_in, :value => Time.now %>
+      <%= f.submit "Clock In" %>
+    <% else %>
+      <%= f.hidden_field :time_out, :value => Time.now %>
+      <%= f.submit "Clock Out" %>
+    <% end %>
+  <% end %>
+
 <% else %>
   <%= link_to :sign_up, signup_path %> or 
   <%= link_to :log_in, login_path %>
