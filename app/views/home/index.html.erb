@@ -1,3 +1,4 @@
+<p id="notice"><%= notice %></p>
 
 <% if current_user %>
   <%= form_for(@time_card) do |f|%>
@@ -41,8 +42,8 @@
   </div>
 <%else%>
   <div class='login-portal'>
-    <%= link_to 'Sign up', signup_path, class: 'button' %> 
-    <%= link_to 'Log in', login_path, class: 'button' %> 
+    <%= link_to 'Sign up', signup_path, class: 'button' %>
+    <%= link_to 'Log in', login_path, class: 'button' %>  
   </div>
 <% end %>
 

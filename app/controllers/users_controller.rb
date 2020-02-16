@@ -20,9 +20,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    message = 'Please Log In'
+    
+    if current_user.present?
+      message = 'new user was created'
+    end
+
     respond_to do |format|
       if @user.save
-        format.html { redirect_to '/', notice: 'Please Log In.' }
+        format.html { redirect_to '/', notice: message }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
