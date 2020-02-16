@@ -11,10 +11,11 @@
       <%= label_tag :password %>
       <%= password_field_tag :password %>
     </div>
+    <br>
     <div class=”actions”>
-      <%= submit_tag :login%>
+      <%= submit_tag :Login, class: 'button'%>
     </div>
   <% end %>
 </div>
 
-<%= link_to 'Back', '/'%>
+<%= link_to 'Home', '/', class: 'button'%>

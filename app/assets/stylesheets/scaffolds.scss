@@ -88,6 +88,8 @@ body, p, ol, ul, td {
   box-shadow: 5px 5px #888888;
   text-align: center;
   margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .table{
@@ -119,21 +121,20 @@ div.actions {
 .field_with_errors {
   padding: 2px;
   background-color: red;
-  display: table; }
+  display: table;
+  margin: auto;
+  text-align: center; 
+}
 
 #error_explanation {
-  width: 450px;
   border: 2px solid red;
-  padding: 7px 7px 0;
-  margin-bottom: 20px;
+  margin: auto;
   background-color: #f0f0f0; }
 
 #error_explanation h2 {
-  text-align: left;
-  font-weight: bold;
   padding: 5px 5px 5px 15px;
   font-size: 12px;
-  margin: -7px -7px 0;
+  margin: auto;
   background-color: #c00;
   color: #fff; }
 

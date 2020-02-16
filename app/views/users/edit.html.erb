@@ -2,5 +2,6 @@
 
 <%= render 'form', user: @user %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Show', @user, class: 'button' %> 
+<%= link_to 'Users', users_path, class: 'button' %>
+<%= link_to 'Home', '/', class: 'button' %>

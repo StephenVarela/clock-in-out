@@ -10,35 +10,34 @@
     <% end %>
   <% end %>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>User Email</th>    
-        <th>Time in</th>
-        <th>Time out</th>
-        <th>Total Time</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @time_cards.each do |time_card| %>
+  <% unless @time_cards.size.zero?%>
+    <table class="table">
+      <thead>
         <tr>
-          <td><%= time_card.user.email %></td>
-          <td><%= time_card.time_in %></td>
-          <td><%= time_card.time_out %></td>
-          <td><%= time_card.total_time %></td>
-          <td><%= link_to 'Show', time_card %></td>
-          <td><%= link_to 'Edit', edit_time_card_path(time_card) %></td>
-          <td><%= link_to 'Destroy', time_card, method: :delete %></td>
+          <th>User Email</th>    
+          <th>Time in</th>
+          <th>Time out</th>
+          <th>Total Time (Hours)</th>
+          <th colspan="3"></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-  
+      </thead>
+
+      <tbody>
+        <% @time_cards.each do |time_card| %>
+          <tr>
+            <td><%= time_card.user.email %></td>
+            <td><%= time_card.time_in %></td>
+            <td><%= time_card.time_out %></td>
+            <td><%= time_card.time_in_hours %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>  
+  <% end %>
+
   <div>
-    <%= link_to :users, users_path %>
-    <%= link_to :time_cards, time_cards_path %>
+    <%= link_to 'Users', users_path, class: 'button' %>
+    <%= link_to 'Time Cards', time_cards_path, class: 'button' %>
   </div>
 <%else%>
   <div class='login-portal'>
