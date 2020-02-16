@@ -12,6 +12,7 @@ class HomeController < ApplicationController
       end
 
       @time_cards = current_user.time_cards
+      @total_clocked_hours = current_user.total_clocked_hours
     end 
   end
 end

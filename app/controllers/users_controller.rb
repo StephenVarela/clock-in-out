@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @time_cards = @user.time_cards
+    @total_clocked_hours = @user.total_clocked_hours
   end
 
   def new

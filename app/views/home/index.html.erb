@@ -12,6 +12,11 @@
   <% end %>
 
   <% unless @time_cards.size.zero?%>
+
+    <div class='total-hours'>
+      <h2> You have clocked in <%=number_with_precision(@total_clocked_hours, precision: 2)%> Hours</h2> 
+    </div>
+
     <table class="table">
       <thead>
         <tr>

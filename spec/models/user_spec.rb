@@ -22,5 +22,16 @@ RSpec.describe :user, type: :model do
           .by(-10)
       end
     end
+
+    describe '.total_clocked_hours' do 
+      let(:timecards) { FactoryBot.build_list(:time_card, 10) }
+      let!(:user) { FactoryBot.create(:user, time_cards: timecards) }
+
+      it 'calculates total time' do
+        expected_value = (user.time_cards.first.total_time * 10) / 60.0 / 60.0
+        
+        expect(user.total_clocked_hours).to eq(expected_value)
+      end
+    end
   end
 end
